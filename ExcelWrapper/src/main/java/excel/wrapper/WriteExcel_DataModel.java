@@ -61,7 +61,7 @@ public class WriteExcel_DataModel {
 		ArrayList<String> listOfSheet = new ArrayList<String>();
 		XSSFSheet sheet1 = null;
 
-		// manage input file
+		// manage input fileXj
 		System.out.println("* Read input file 					****");
 		FileInputStream fileInput = new FileInputStream(
 				"C:\\Users\\m.carricato\\Desktop\\Project_OSS\\provaJava\\test_excel.xlsx");
@@ -137,7 +137,7 @@ public class WriteExcel_DataModel {
 		utilityFunctions.fillSummarySheet(wb_out, listOfSheet, cellStyles);
 		utilityFunctions.deleteDirtySheet(wb_out);
 
-		System.out.println("* Starting autosizing  					****************************");
+		System.out.println("* Start autosizing  					****************************");
 		utilityFunctions.autoSizeColumns(wb_out);
 		wb_out.write(fileOut);
 		fileInput.close();

@@ -235,20 +235,20 @@ public String computeTargetDataValue(ArrayList<String> tempStructure) {
 	String dataType = "";
 	String nullable = "";
 
-	for (int i = 0; i < tempStructure.size(); i++) {
-		if (i == 0)
-			sourceObj = tempStructure.get(i).toString();
-		else if (i == 1)
-			sourceField = tempStructure.get(i).toString();
-		else if (i == 2)
-			dataType = tempStructure.get(i).toString();
-		else if (i == 3)
-			lenghtField = tempStructure.get(i).toString();
-		else if (i == 4)
-			nullable = tempStructure.get(i).toString();
-	}
-
-		// manage Type -> DATE
+		for (int i = 0; i < tempStructure.size(); i++) {
+			if (i == 0)
+				sourceObj = tempStructure.get(i).toString();
+			else if (i == 1)
+				sourceField = tempStructure.get(i).toString();
+			else if (i == 2)
+				dataType = tempStructure.get(i).toString();
+			else if (i == 3)
+				lenghtField = tempStructure.get(i).toString();
+			else if (i == 4)
+				nullable = tempStructure.get(i).toString();
+		}
+	
+	// manage Type -> DATE
 		if (dataType.contains("DATE")) {
 			if (sourceField.contains("_DATE") || sourceField.contains("DATE")) {
 				targetFiled = "dt_" + sourceField.toLowerCase();
@@ -257,14 +257,16 @@ public String computeTargetDataValue(ArrayList<String> tempStructure) {
 				targetFiled = "dt_" + sourceField.toLowerCase() + "_date";
 				targetFiledDataType = "date";
 			}
-		} else if (dataType.contains("TIMESTAMP")) {
+		}
+		else if (dataType.contains("TIMESTAMP")) {
 			if (sourceField.contains("_TIMESTAMP")) {
 				targetFiled = "dt_" + sourceField.toLowerCase();
 				targetFiledDataType = "timestamp";
 			} else {
 				targetFiled = "dt_" + sourceField.toLowerCase() + "_timestamp";
 				targetFiledDataType = "timestamp";
-			}
+			}	
+			
 		}
 	// manage Type -> CODE
 		else if (( (!sourceField.contains("_DESC") && (!sourceField.contains("DESC_")))  &&
@@ -316,7 +318,7 @@ public String computeTargetDataValue(ArrayList<String> tempStructure) {
 				}
 			}
 		}
-		// manage Type -> ID
+	// manage Type -> ID
 		else if (dataType.contains("INT") || dataType.contains("BIGINT") || dataType.contains("NUMBER")) {
 			
 			if (sourceField.contains("_ID")) {
@@ -347,8 +349,7 @@ public String computeTargetDataValue(ArrayList<String> tempStructure) {
 					targetFiledDataType = value;
 			}
 		}
-
-		// manage Type -> DESC
+	// manage Type -> DESC
 		else if (dataType.contains("CLOB") || dataType.contains("TEXT") || dataType.contains("CHAR") && Double.parseDouble(lenghtField) > 1) {
 			
 			if (sourceField.contains("_DESC")) {
@@ -389,7 +390,6 @@ public String computeTargetDataValue(ArrayList<String> tempStructure) {
 				targetFiledDataType = "varchar(" + lenghtFieldInt + ")";
 			}
 		}
-
 	// manage Type -> FLAG
 		else if (dataType.contains("INT") || (dataType.contains("CHAR") && Double.parseDouble(lenghtField) <= 2) || dataType.contains("BOOLEAN")) {
 			
@@ -410,8 +410,7 @@ public String computeTargetDataValue(ArrayList<String> tempStructure) {
 			else
 				targetFiledDataType = lenghtField;
 		}
-
-		// manage Type -> NUMBER
+    // manage Type -> NUMBER
 		else if (dataType.contains("NUMBER") || dataType.contains("FLOAT")) {
 			
 			if (sourceField.contains("NM_"))
