@@ -1,3 +1,3 @@
-com\howtodoinjava\demo\poi\CellStyles.class
-com\howtodoinjava\demo\poi\WriteExcel_DataModel.class
-com\howtodoinjava\demo\poi\UtilityFunctions.class
+excel\wrapper\WriteExcel_DataModel.class
+excel\wrapper\UtilityFunctions.class
+excel\wrapper\CellStyles.class

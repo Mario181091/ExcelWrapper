@@ -1,4 +1,4 @@
-package com.howtodoinjava.demo.poi;
+package excel.wrapper;
 
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.IndexedColors;
