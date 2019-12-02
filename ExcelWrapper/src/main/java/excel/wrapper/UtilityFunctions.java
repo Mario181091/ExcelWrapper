@@ -270,10 +270,10 @@ public String computeTargetDataValue(ArrayList<String> tempStructure) {
 		}
 	// manage Type -> CODE
 		else if (( (!sourceField.contains("_DESC") && (!sourceField.contains("DESC_")))  &&
-				   (!sourceField.contains("_ID") && (!sourceField.contains("ID_")))  &&
+				   (!sourceField.contains("_ID") && (!sourceField.contains("ID_")) && (!sourceField.contains("ID")) )  &&
 				   (!sourceField.contains("_FL") && (!sourceField.contains("_FLG"))) && (!sourceField.contains("FLG_") && (!sourceField.contains("FL_"))) && 
 				   ( dataType.contains("INT") || dataType.contains("BIGINT") || dataType.contains("NUMBER")	|| 
-				   (dataType.contains("CHAR") && Double.parseDouble(lenghtField) > 2 && Double.parseDouble(lenghtField) < 41))) ) {
+				   ( dataType.contains("CHAR") && Double.parseDouble(lenghtField) > 1 && Double.parseDouble(lenghtField) < 41))) ) {
 			
 			if ((sourceField.contains("_CODE") || sourceField.contains("CODE") || sourceField.contains("_CD")
 					|| sourceField.contains("_COD"))) {
